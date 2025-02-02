@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>contacto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-label position="floating" >Nombre</ion-label>
+    <ion-input [(ngModel)]="txt_nombre" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating" >Apellido</ion-label>
+    <ion-input [(ngModel)]="txt_apellido" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating" >Telefono</ion-label>
+    <ion-input [(ngModel)]="txt_telefono" type="text"  (focusout)="verificarNumero()"></ion-input>
+    <ion-text color="danger" *ngIf="mensaje" class="error-text">
+      {{mensaje}}
+    </ion-text>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating" >Email</ion-label>
+    <ion-input [(ngModel)]="txt_correo" type="E-Mail" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-button color="success" (click)="guardar()">
+      <ion-icon name="bookmark-outline"></ion-icon>Guardar
+    </ion-button>
+    <ion-button color="danger" (click)="cancelar()">
+      <ion-icon name="trash-outline"></ion-icon>Cancelar
+    </ion-button>
+  </ion-item>
+</ion-content>

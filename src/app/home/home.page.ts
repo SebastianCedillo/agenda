@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { AccesoService } from '../servicio/acceso.service';
-import { NavController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
+import { CuentaPage } from '../cuenta/cuenta.page';
+
+
 
 
 @Component({
@@ -18,6 +21,7 @@ export class HomePage {
   constructor(
     private servicio:AccesoService,
     private navCtrl:NavController,
+    private modalCtrl:ModalController,
     
   ) {}
 
@@ -41,8 +45,11 @@ export class HomePage {
 
   }
 
-  crear(){
-
+ async crear(){
+    const modal = await this.modalCtrl.create({
+      component:CuentaPage
+    });
+    return await modal.present();
   }
 
   recuperar(){
